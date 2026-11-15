@@ -71,19 +71,18 @@ n + `<localleader>j` to activate the navigator
 <https://github.com/benlubas/molten-nvim/blob/main/docs/Not-So-Quick-Start-Guide.md>
 <https://github.com/benlubas/molten-nvim/blob/main/docs/Notebook-Setup.md>
 
+!! array_to_latex adds a \\ at the end that pnglatex does NOT like..., needs custom function to fix it
+
 !! It's important to change the render markdown because if not it'll break the latex rendered
-
-# Quantum
-```{python}
-print("Hello, World!")
+```{lua}
+  { -- DO NOT ERASE IMGS WILL OVERLAP
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      code = {
+        border = "none",
+        style = "normal",
+      },
+    },
+  },
 ```
-```{python}
-import numpy as np
-from qiskit.visualization import array_to_latex
-from qhelpers import qdisplay
 
-ket1 = np.array([[0], [1]])
-M1 = np.array([[1, 1], [0, 0]])
-
-qdisplay(array_to_latex(M1 @ ket1))
-```
